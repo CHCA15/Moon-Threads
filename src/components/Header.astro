@@ -1,0 +1,86 @@
+<header class="header" id="Header">
+  <strong class="logo"> Moon Threads </strong>
+
+  <nav class="links">
+    <ul class="listLinks">
+      <li class="link"><a href="#Inicio">Inicio</a></li>
+      <li class="link"><a href="#Brasieres">Brasieres</a></li>
+      <li class="link"><a href="#Panties">Panties</a></li>
+      <li class="link"><a href="#Todo">Todo</a></li>
+    </ul>
+
+    <div class="icons">
+      <i class="bx bx-search"></i>
+    </div>
+  </nav>
+
+  <div class="hoverLink" id="HoverLink"></div>
+</header>
+
+<style>
+  .header {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .links .listLinks {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    column-gap: 20px;
+  }
+  .links .listLinks a {
+    text-decoration: none;
+    padding: 5px 25px;
+  }
+
+  .hoverLink {
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    left: var(--left);
+    top: var(--top); 
+		border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.397);
+    backdrop-filter: blur(2px);
+		z-index: -5;
+    transition: all 100ms ease-in-out;
+  }
+</style>
+
+<script>
+  const $links = document.querySelectorAll("#Header li");
+  const $hover = document.getElementById("HoverLink");
+	const headerOffsetLeft = document.getElementById("Header").offsetLeft;
+	const headeroffsetTop = document.getElementById("Header").offsetTop;
+	
+
+  $links.forEach((link) => {
+    link.addEventListener("mouseenter", (e) => {
+      const {width, height, left, top} = link.getBoundingClientRect();
+      $hover.style.setProperty("--width", `${width}px`);
+      $hover.style.setProperty("--height", `${height}px`);
+      $hover.style.setProperty("--left", `${left - headerOffsetLeft}px`);
+      $hover.style.setProperty("--top", `${top - headeroffsetTop}px`);
+			console.log(e.target);
+      $hover.style.visibility = "visible";
+    });
+
+		link.addEventListener('mouseleave', ()=>{
+			$hover.style.visibility = "hidden";
+		});
+  });
+</script>

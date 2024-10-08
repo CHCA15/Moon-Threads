@@ -12,7 +12,10 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
+		<!-- links -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<!-- links -->
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -36,6 +39,13 @@ const { title } = Astro.props;
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 	}
+
+	a{
+		display: inline-block;
+		text-decoration: none;
+		color: white;
+	}
+
 	code {
 		font-family:
 			Menlo,
