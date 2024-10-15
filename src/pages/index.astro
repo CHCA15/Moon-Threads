@@ -1,25 +1,80 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import ProductCard from "../components/ProductCard.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<head class="head">
-			<Header/>
-		</head>
-	</main>
+  <main>
+    <section class="head">
+      <Header />
+      <picture class="picture">
+        <img class="imgIntro" src="../../public/media/model.jpg" alt="intro" />
+      </picture>
+    </section>
+    <section class="section">
+      <div class="gridCategories">
+        <ProductCard
+          id={1}
+          title="the crazy world"
+          ,
+          image="https://via.placeholder.com/300x400?text=T-Shirt+Bra"
+          price={200}
+          category="funny"
+        />
+        <ProductCard
+          id={1}
+          title="the crazy world"
+          ,
+          image="https://via.placeholder.com/300x400?text=T-Shirt+Bra"
+          price={200}
+          category="funny"
+        />
+        <ProductCard
+          id={1}
+          title="the crazy world"
+          ,
+          image="https://via.placeholder.com/300x400?text=T-Shirt+Bra"
+          price={200}
+          category="funny"
+        />
+        <ProductCard
+          id={1}
+          title="the crazy world"
+          ,
+          image="https://via.placeholder.com/300x400?text=T-Shirt+Bra"
+          price={200}
+          category="funny"
+        />
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		width: 80%;
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  main {
+    margin: auto;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-	
+	.picture{
+		margin: 30px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+  .picture img{
+		width: 80%;
+		height: 100vh;
+  }
+
+	.gridCategories{
+		display: grid;
+		justify-content: space-between;
+		padding: 25px 100px;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 25px 10px;
+	}
 </style>
